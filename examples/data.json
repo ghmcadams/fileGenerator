@@ -1,0 +1,15 @@
+{
+  "name": "Gabriel McAdams",
+  "links": [
+    {
+      "name": "stackoverflow",
+      "description": "StackOverflow Developer Story",
+      "url": "http://stackoverflow.com/users/story/213474"
+    },
+    {
+      "name": "linkedin",
+      "description": "LinkedIn Profile",
+      "url": "https://www.linkedin.com/in/gabrielmcadams"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+--
+-- Author:  <%- $.me %>
+-- Date:    <%- $.today %>
+-- Creating a SQL script to insert links to profile pages
+--
+
+USE my_db_name;
+
+DECLARE userId BIGINT;
+
+SELECT id INTO userId FROM `user` WHERE `name` = '<%- name %>' LIMIT 1;
+
+IF userId IS NULL THEN
+  -- Insert user
+  INSERT INTO `user` (
+    `name`
+  )
+  VALUES (
+    '<%- name %>'
+  );
+
+  SET userId = LAST_INSERT_ID();
+END IF;
+
+<% if ($.options.deleteExisting) { %>
+-- remove previously imported links for <%- name %>...
+DELETE FROM `link` WHERE `userId` = userId;
+<% } %>
+<% links.forEach(function(link) { %>
+-- -----------------------------------------
+--  <%- link.name %>
+-- -----------------------------------------
+INSERT INTO `link` SET
+  `userid` = userId,
+  `name` = '<%- link.name %>',
+  `description` = '<%- link.description %>',
+  `url` = '<%- link.url %>',
+  `deleted` = 0;
+
+<% }) %>

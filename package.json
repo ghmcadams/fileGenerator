@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "example": "cd example && node ../index.js data.json registryItems.ejs out.sql deleteExisting shiftExisting=false"
+    "example": "cd example && node ../index.js data.json template.ejs out.sql deleteExisting"
   },
   "author": "Gabriel McAdams",
   "license": "MIT",
