@@ -1,6 +1,6 @@
 {
   "name": "filegenerator",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A Node.js based Command Line Interface (CLI) that generates a file based on a template and a JSON file",
   "main": "index.js",
   "preferGlobal": true,
@@ -9,8 +9,25 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "example": "cd example && node ../index.js data.json template.ejs out.sql deleteExisting"
+    "example": "cd examples && node ../index.js data.json template.ejs out.sql deleteExisting"
   },
+  "keywords": [
+    "template",
+    "generate",
+    "generator",
+    "json",
+    "file"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghmcadams/fileGenerator.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ghmcadams/fileGenerator/blob/master/LICENSE"
+    }
+  ],
   "author": "Gabriel McAdams",
   "license": "MIT",
   "dependencies": {

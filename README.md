@@ -18,10 +18,12 @@ A Node.js based Command Line Interface (CLI) that generates a file based on a te
 - template:  The path to the ejs template file
 - output:    The path to output the resulting file
 - options:   Optional properties for use in your template
+```
         format: key=value
         value can be boolean, integer, or string
         if value is omitted, value is defaulted to true (boolean)
         values that contain spaces must be put inside quotes
+
         examples:
             processItems                // true
             processItems=true           // true
@@ -29,6 +31,7 @@ A Node.js based Command Line Interface (CLI) that generates a file based on a te
             itemId=42                   // 42
             itemCode=condor             // "condor"
             userName="Gabriel McAdams"  // "Gabriel McAdams"
+```
 
 - Additional template properties:
 
