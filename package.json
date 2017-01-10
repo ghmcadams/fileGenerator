@@ -1,15 +1,13 @@
 {
   "name": "filegenerator",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A Node.js based Command Line Interface (CLI) that generates a file based on a template and a JSON file",
-  "main": "index.js",
   "preferGlobal": true,
-  "bin": {
-    "filegenerator": "index.js"
-  },
+  "main": "./lib/filegenerator.js",
+  "bin": "./bin/filegenerator-cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "example": "cd examples && node ../index.js data.json template.ejs out.sql deleteExisting"
+    "example": "cd examples && node ../bin/filegenerator-cli.js data.json template.ejs out.sql deleteExisting"
   },
   "keywords": [
     "template",

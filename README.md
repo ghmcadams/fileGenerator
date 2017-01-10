@@ -1,7 +1,7 @@
 File Generator
 ===============
 
-A Node.js based Command Line Interface (CLI) that generates a file based on a template and a JSON file
+A Node.js based Module / Command Line Interface (CLI) that generates a file based on a template and a JSON file
 
 [![NPM](https://nodei.co/npm/filegenerator.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/filegenerator/)
 
@@ -12,7 +12,7 @@ A Node.js based Command Line Interface (CLI) that generates a file based on a te
 
 ## Usage
 
-    $ filegenerator <source> <template> <output> [options...]
+Arguments:
 
 - source:    The path to the JSON file containing the source data
 - template:  The path to the ejs template file
@@ -32,6 +32,7 @@ A Node.js based Command Line Interface (CLI) that generates a file based on a te
             itemCode=condor             // "condor"
             userName="Gabriel McAdams"  // "Gabriel McAdams"
 ```
+- callback (module use only): a function that is called upon error or completion
 
 - Additional template properties:
 
@@ -42,6 +43,25 @@ $: {
     options: An object containing the options specified above
 }
 ```
+
+
+Usage VIA Command Line:
+
+    $ filegenerator data.json template.ejs out.sql deleteExisting
+
+Usage VIA module require:
+
+    var generate = require('filegenerator');
+
+    generate('data.json', 'template.ejs', 'out.sql', {deleteExisting: true}, function(err) {
+      if (err) {
+        console.log(err.message);
+      } else {
+        console.log("File generated successfully.");
+      }
+    });
+
+Run example:
 
     $ npm run example
 
