@@ -1,5 +1,6 @@
 {
   "name": "filegenerator",
+  "version": "1.1.1",
   "description": "A Node.js based Command Line Interface (CLI) that generates a file based on a template and a JSON file",
   "preferGlobal": true,
   "main": "./lib/filegenerator.js",
