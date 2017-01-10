@@ -1,6 +1,6 @@
 --
--- Author:  gabriel
--- Date:    12/28/2016
+-- Author:  Gabriel McAdams
+-- Date:    01/10/2017
 -- Creating a SQL script to insert links to profile pages
 --
 

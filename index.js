@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
+var os = require('os');
 var path = require('path');
 var fs = require('fs');
 var program = require('commander');
 var ejs = require('ejs');
 var moment = require('moment');
 var ejsLint = require('ejs-lint');
+var ini = require('node-ini');
 
 const env = process.env;
 
@@ -78,8 +80,15 @@ program
     });
 
     // Add additional template properties
+
+    // Get git user name
+    var gitUserName;
+    try {
+      gitUserName = ini.parseSync(path.join(os.homedir(), '.gitconfig')).user.name;
+    } catch (e) {}
+
     sourceData.$ = {
-      me: env.GIT_AUTHOR_NAME || env.GIT_COMMITTER_NAME || env.SUDO_USER || env.LOGNAME || env.USER || env.LNAME || env.USERNAME || '**UNKNOWN**',
+      me: gitUserName || env.GIT_AUTHOR_NAME || env.GIT_COMMITTER_NAME || env.HGUSER || env.C9_USER || env.SUDO_USER || env.LOGNAME || env.USER || env.LNAME || env.USERNAME || '**UNKNOWN**',
       today: moment().format('MM/DD/YYYY'),
       options: {}
     };
