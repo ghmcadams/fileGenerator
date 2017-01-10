@@ -10,7 +10,9 @@ A Node.js based Module / Command Line Interface (CLI) that generates a file base
     $ npm install filegenerator -g
 
 
-## Usage
+## Usage (Command Line)
+
+    $ filegenerator data.json template.ejs out.sql deleteExisting
 
 Arguments:
 
@@ -32,24 +34,9 @@ Arguments:
             itemCode=condor             // "condor"
             userName="Gabriel McAdams"  // "Gabriel McAdams"
 ```
-- callback (module use only): a function that is called upon error or completion
-
-- Additional template properties:
-
-```
-$: {
-    me:      The name of the user running the script
-    today:   Today's date (formatted as MM/DD/YYYY)
-    options: An object containing the options specified above
-}
-```
 
 
-Usage VIA Command Line:
-
-    $ filegenerator data.json template.ejs out.sql deleteExisting
-
-Usage VIA module require:
+## Usage (Module)
 
     var generate = require('filegenerator');
 
@@ -61,11 +48,35 @@ Usage VIA module require:
       }
     });
 
-Run example:
+
+Arguments:
+
+- source:    The path to the JSON file containing the source data
+- template:  The path to the ejs template file
+- output:    The path to output the resulting file
+- options:   An object containing optional properties for use in your template
+- callback: a function that is called upon error or completion
+
+
+## Usage (Template)
+
+Using this tool allows you to use these additional template properties:
+
+```
+$: {
+    me:      The name of the user running the script
+    today:   Today's date (formatted as MM/DD/YYYY)
+    options: An object containing the options specified above
+}
+```
+
+
+## Run example:
 
     $ npm run example
 
 (see example folder for a full example of usage)
+
 
 ## License
 
